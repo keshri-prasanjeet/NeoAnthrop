@@ -1,4 +1,5 @@
 package com.keshrixlabs.whatsappclone.message;
+import com.keshrixlabs.whatsappclone.chat.Chat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,9 +25,11 @@ public class Message extends BaseAuditingEntity {
         private String senderId;
         @Column(name = "recipient_id", nullable = false)
         private String recipientId;
-        private String chatId;
+        @ManyToOne
+        @JoinColumn(name = "chat_id")
+        private Chat chat;
         @Enumerated(EnumType.STRING)
-        private MesssageState state;
+        private MessageState state;
         @Enumerated(EnumType.STRING)
         private MessageType type;
 }
