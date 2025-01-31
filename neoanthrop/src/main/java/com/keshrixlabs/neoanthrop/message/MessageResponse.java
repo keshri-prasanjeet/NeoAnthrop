@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
-@NoArgsConstructor
 @Builder
 public class MessageResponse {
     private long id;

@@ -13,7 +13,6 @@ import static com.keshrixlabs.neoanthrop.message.MessageConstants.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "messages")
-@Builder
 @NamedQuery(name = FIND_MESSAGES_BY_CHAT_ID,
         query = "select m from Message m where m.chat.id = :chatId ORDER BY m.createdAt DESC")
 @NamedQuery(name = SET_MESSAGES_TO_SEEN_BY_CHAT,

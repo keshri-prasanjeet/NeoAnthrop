@@ -24,14 +24,23 @@ public class MessageService {
         Chat chat = chatRepository.findById(messageRequest.getChatId())
                 .orElseThrow(() -> new EntityNotFoundException("Chat not found"));
 
-        messageRepository.save(Message.builder()
-                .senderId(messageRequest.getSenderId())
-                .recipientId(messageRequest.getReceiverId())
-                .content(messageRequest.getMessage())
-                .type(messageRequest.getType())
-                .chat(chat)
-                .state(MessageState.SENT)
-                .build());
+        Message message = new Message();
+        message.setSenderId(messageRequest.getSenderId());
+        message.setRecipientId(messageRequest.getReceiverId());
+        message.setContent(messageRequest.getMessage());
+        message.setType(messageRequest.getType());
+        message.setChat(chat);
+        message.setState(MessageState.SENT);
+        messageRepository.save(message);
+
+//        messageRepository.save(Message.builder()
+//                .senderId(messageRequest.getSenderId())
+//                .recipientId(messageRequest.getReceiverId())
+//                .content(messageRequest.getMessage())
+//                .type(messageRequest.getType())
+//                .chat(chat)
+//                .state(MessageState.SENT)
+//                .build());
     }
 
     public List<MessageResponse> findChatMessages(String chatId) {
