@@ -9,8 +9,8 @@ import java.util.Optional;
 
 public interface ChatRepository extends JpaRepository<Chat, String> {
 
-    @Query(name = ChatConstants.FIND_CHAT_BY_SENDER_ID)
-    List<Chat> findChatsBySenderId(@Param("senderId") String senderId);
+    @Query(name = ChatConstants.FIND_CHAT_BY_USER_ID)
+    List<Chat> getCurrentUserChats(@Param("user_id") String senderId);
 
     @Query(name = ChatConstants.FIND_CHAT_BY_SENDER_ID_AND_RECEIVER)
     Optional<Chat> findChatByReceiverAndSender(@Param("senderId") String id, @Param("recipientId") String recipientId);

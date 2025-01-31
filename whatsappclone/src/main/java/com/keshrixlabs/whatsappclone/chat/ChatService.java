@@ -16,10 +16,10 @@ public class ChatService {
     private final ChatMapper chatMapper;
 
     @Transactional(readOnly = true)
-    public List<ChatResponse> getChatsByRecipientId(Authentication currentUser) {
+    public List<ChatResponse> getAllChatsFromUser(Authentication currentUser) {
         final String currentUserId = currentUser.getName();//current authenticated user
         //
-        return chatRepository.findChatsBySenderId(currentUserId)
+        return chatRepository.getCurrentUserChats(currentUserId)
                 .stream()
                 .map(chat -> chatMapper.toChatResponse(chat, currentUserId))
                 .toList();

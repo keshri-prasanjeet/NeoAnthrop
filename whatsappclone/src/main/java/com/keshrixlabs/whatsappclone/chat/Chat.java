@@ -21,8 +21,8 @@ import static jakarta.persistence.GenerationType.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "chat")
-@NamedQuery(name = ChatConstants.FIND_CHAT_BY_SENDER_ID,
-        query = "SELECT DISTINCT c from Chat c where c.sender.id = :senderId OR c.recipient.id = :senderId ORDER BY c.createdDate DESC")
+@NamedQuery(name = ChatConstants.FIND_CHAT_BY_USER_ID,
+        query = "SELECT DISTINCT c from Chat c where c.sender.id = :user_id OR c.recipient.id = :user_id ORDER BY c.createdDate DESC")
 @NamedQuery(name = ChatConstants.FIND_CHAT_BY_SENDER_ID_AND_RECEIVER,
         query = "SELECT distinct c from Chat c where (c.sender.id = :senderId and c.recipient.id = :recipientId) or " +
                 "(c.sender.id = :recipientId and c.recipient.id = :senderId) order by c.createdDate desc")
