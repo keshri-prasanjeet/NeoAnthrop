@@ -1,5 +1,6 @@
 package com.keshrixlabs.whatsappclone.chat;
 
+import com.keshrixlabs.whatsappclone.common.BaseAuditingEntity;
 import com.keshrixlabs.whatsappclone.message.Message;
 import com.keshrixlabs.whatsappclone.message.MessageState;
 import com.keshrixlabs.whatsappclone.message.MessageType;
@@ -20,7 +21,13 @@ import static jakarta.persistence.GenerationType.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "chat")
-public class Chat {
+@NamedQuery(name = ChatConstants.FIND_CHAT_BY_SENDER_ID,
+        query = "SELECT DISTINCT c from Chat c where c.sender.id = :senderId OR c.recipient.id = :senderId ORDER BY c.createdDate DESC")
+@NamedQuery(name = ChatConstants.FIND_CHAT_BY_SENDER_ID_AND_RECEIVER,
+        query = "SELECT distinct c from Chat c where (c.sender.id = :senderId and c.recipient.id = :recipientId) or " +
+                "(c.sender.id = :recipientId and c.recipient.id = :senderId) order by c.createdDate desc")
+
+public class Chat extends BaseAuditingEntity {
 
     @Id
     @GeneratedValue(strategy = UUID)

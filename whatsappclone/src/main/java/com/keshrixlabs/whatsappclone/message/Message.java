@@ -7,12 +7,18 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import com.keshrixlabs.whatsappclone.common.BaseAuditingEntity;
 
+import static com.keshrixlabs.whatsappclone.message.MessageConstants.*;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "messages")
+@NamedQuery(name = FIND_MESSAGES_BY_CHAT_ID,
+        query = "select m from Message m where m.chat.id = :chatId ORDER BY m.createdDate DESC")
+@NamedQuery(name = SET_MESSAGES_TO_SEEN_BY_CHAT,
+        query = "UPDATE Message SET state = :newState WHERE chat.id = :chatId")
 public class Message extends BaseAuditingEntity {
 
         @Id

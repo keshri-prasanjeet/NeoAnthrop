@@ -1,17 +1,11 @@
 package com.keshrixlabs.whatsappclone.user;
 
-public enum UserConstants {
-    FIND_USER_BY_EMAIL("Users.findUserByEmail"),
-    FIND_USERS_EXCEPT_SELF("Users.findUsersExceptSelf"),
-    FIND_USER_BY_PUBLIC_ID("Users.findUserByPublicId");
+public class UserConstants {
 
-    private final String query;
+    public static final String FIND_USER_BY_EMAIL = "Users.findUserByEmail";
+    public static final String FIND_ALL_USERS_EXCEPT_SELF = "Users.findAllUsersExceptSelf";
+    public static final String FIND_USER_BY_PUBLIC_ID = "Users.findUserByPublicId";
 
-    UserConstants(String query) {
-        this.query = query;
-    }
-
-    public String getQuery() {
-        return query;
+    private UserConstants() {
     }
 }

@@ -11,6 +11,8 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static com.keshrixlabs.whatsappclone.user.UserConstants.*;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,13 +21,13 @@ import java.util.List;
 @Table(name = "users")
 
 @NamedQuery(
-        name = "UserConstants.FIND_USER_BY_EMAIL",
-        query = "select u from User u where u.email = :email")//:email syntax in the query is a named parameter in JPQL (Java Persistence Query Language).
+        name = FIND_USER_BY_EMAIL,
+        query = "select u from User u where u.email = :email")
 @NamedQuery(
-        name = "UserConstants.FIND_USERS_EXCEPT_SELF",
+        name = FIND_ALL_USERS_EXCEPT_SELF,
         query = "select u from User u where u.id != :publicId")
 @NamedQuery(
-        name = "UserConstants.FIND_USER_BY_PUBLIC_ID",
+        name = FIND_USER_BY_PUBLIC_ID,
         query = "select u from User u where u.id = :publicId")
 public class User extends BaseAuditingEntity {
     @Id
