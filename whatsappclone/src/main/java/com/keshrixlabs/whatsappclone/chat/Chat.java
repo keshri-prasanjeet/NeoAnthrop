@@ -6,10 +6,7 @@ import com.keshrixlabs.whatsappclone.message.MessageState;
 import com.keshrixlabs.whatsappclone.message.MessageType;
 import com.keshrixlabs.whatsappclone.user.User;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -19,6 +16,7 @@ import static jakarta.persistence.GenerationType.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @Table(name = "chat")
 @NamedQuery(name = ChatConstants.FIND_CHAT_BY_USER_ID,
