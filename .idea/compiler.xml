@@ -11,10 +11,24 @@
         </processorPath>
         <module name="whatsappclone" />
       </profile>
+      <profile name="Annotation profile for NeoAnthropChat" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="neoanthrop" />
+      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="whatsappclone" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="neoanthrop" options="-parameters" />
       <module name="whatsappclone" options="-parameters" />
     </option>
   </component>
