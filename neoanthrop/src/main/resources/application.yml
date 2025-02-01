@@ -1,9 +1,4 @@
 spring:
-  application:
-    name: WhatsAppCloneApi
-    file:
-        uploads:
-            media-output.path: ./uploads
   datasource:
     url: jdbc:postgresql://localhost:5432/whatsapp_clone
     username: postgres
@@ -32,3 +27,8 @@ spring:
       multipart:
         max-file-size: 150MB
         max-request-size: 150MB
+
+application:
+  file:
+    uploads:
+      media-output-path: ./uploads

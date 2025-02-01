@@ -1,5 +1,6 @@
 package com.keshrixlabs.neoanthrop.message;
 
+import com.keshrixlabs.neoanthrop.file.FileUtils;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,7 +14,7 @@ public class MessageMapper {
                 .type(message.getType())
                 .state(message.getState())
                 .createdAt(message.getCreatedAt())
-                //todo read the media file
+                .mediaFile(FileUtils.readFileFromLocation(message.getMediaFilepath()))
                 .build();
     }
 }

@@ -35,6 +35,5 @@ public class Message extends BaseAuditingEntity {
     private MessageState state;
     @Enumerated(EnumType.STRING)
     private MessageType type;
-
     private String mediaFilepath;
 }
