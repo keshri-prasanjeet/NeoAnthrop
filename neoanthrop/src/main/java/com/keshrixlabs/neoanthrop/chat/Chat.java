@@ -30,6 +30,8 @@ public class Chat extends BaseAuditingEntity {
     @GeneratedValue(strategy = UUID)
     private String id;
 
+    //todo get rid of sender and recipient fields and use a list of users or user1 and user2
+
     @ManyToOne//Many chats can be sent by one user
     @JoinColumn(name = "sender_id")
     private User sender;
