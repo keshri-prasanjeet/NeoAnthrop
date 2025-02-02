@@ -1,5 +1,6 @@
 package com.keshrixlabs.neoanthrop.message;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -21,14 +22,16 @@ public class MessageController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @Operation(summary = "Save message")
     public void saveMessage(@RequestBody MessageRequest messageRequest) {
         messageService.saveMessage(messageRequest);
     }
 
     @PostMapping(value = "/upload-media", consumes = "multipart/form-data")
     @ResponseStatus(HttpStatus.CREATED)
+    @Operation(summary = "Upload media file")
     public void uploadMedia(@RequestParam("chatId") String chatId,
-                            @Parameter()
+                            @Parameter(ref = "Media file")
                             @RequestParam("file")MultipartFile file,
                             Authentication authentication) {
         messageService.uploadMediaMessage(chatId, file, authentication);
