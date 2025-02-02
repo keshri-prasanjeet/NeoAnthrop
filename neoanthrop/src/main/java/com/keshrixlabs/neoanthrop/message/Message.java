@@ -15,7 +15,7 @@ import static com.keshrixlabs.neoanthrop.message.MessageConstants.*;
 @Table(name = "messages")
 @NamedQuery(name = FIND_MESSAGES_BY_CHAT_ID,
         query = "select m from Message m where m.chat.id = :chatId ORDER BY m.createdAt DESC")
-@NamedQuery(name = SET_MESSAGES_TO_SEEN_BY_CHAT,
+@NamedQuery(name = CHANGE_MESSAGE_STATE_BY_CHAT_ID,
         query = "UPDATE Message SET state = :newState WHERE chat.id = :chatId")
 public class Message extends BaseAuditingEntity {
     @Id

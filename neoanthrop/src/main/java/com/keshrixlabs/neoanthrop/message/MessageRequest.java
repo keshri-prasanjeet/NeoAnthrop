@@ -9,7 +9,7 @@ import lombok.Data;
 @Builder
 public class MessageRequest {
     private String senderId;
-    private String receiverId;
+    private String recipientId;
     private String message;
     private MessageType type;
     private String chatId;
