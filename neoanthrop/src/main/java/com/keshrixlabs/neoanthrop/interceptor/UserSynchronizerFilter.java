@@ -35,7 +35,7 @@ public class UserSynchronizerFilter extends OncePerRequestFilter {
             userSynchronizer.synchronizeWithIdp(token.getToken());
             //pass the token to the userSynchronizer to synchronize the user with the IDP
         }
-
+        filterChain.doFilter(request, response);// request is passed to the next filter in the chain
     }
 
     private boolean shouldSynchronize(String requestURI) {

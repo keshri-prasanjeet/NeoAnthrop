@@ -1,7 +1,7 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/whatsapp_clone
-    username: postgres
+    url: jdbc:postgresql://100.99.252.5:5432/neoanthrop
+    username: username
     password: password
 
   jpa:
@@ -21,7 +21,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-            issuer-uri: http://localhost:9090/auth/realms/whatsapp-clone
+            issuer-uri: https://2eae-2401-4900-1f25-626b-c5e2-60e0-c89d-a87d.ngrok-free.app/realms/neo-anthrop
 
     servlet:
       multipart:
@@ -32,3 +32,6 @@ application:
   file:
     uploads:
       media-output-path: ./uploads
+
+springdoc:
+  default-produces-media-type: application/json

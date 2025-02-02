@@ -5,6 +5,7 @@ import com.keshrixlabs.neoanthrop.message.Message;
 import com.keshrixlabs.neoanthrop.message.MessageState;
 import com.keshrixlabs.neoanthrop.message.MessageType;
 import com.keshrixlabs.neoanthrop.user.User;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.persistence.*;
 import lombok.*;
 

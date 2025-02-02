@@ -14,5 +14,4 @@ public class ChatResponse {
     private LocalDateTime lastMessageTime;
     private long unreadCount;
     private boolean isRecipientOnline;
-
 }
