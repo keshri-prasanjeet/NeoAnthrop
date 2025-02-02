@@ -23,6 +23,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="neoanthrop" target="17" />
       <module name="whatsappclone" target="17" />
     </bytecodeTargetLevel>
   </component>
