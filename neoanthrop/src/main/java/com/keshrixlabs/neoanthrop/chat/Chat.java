@@ -5,7 +5,6 @@ import com.keshrixlabs.neoanthrop.message.Message;
 import com.keshrixlabs.neoanthrop.message.MessageState;
 import com.keshrixlabs.neoanthrop.message.MessageType;
 import com.keshrixlabs.neoanthrop.user.User;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -34,13 +33,16 @@ public class Chat extends BaseAuditingEntity {
     //todo get rid of sender and recipient fields and use a list of users or user1 and user2
 
     @ManyToOne//Many chats can be sent by one user
-    @JoinColumn(name = "sender_id")
+    @JoinColumn(name = "sender_id")// specifies the foreign key column in the chat table that references the id column in the user table
     private User sender;
     @ManyToOne//Many chats can be received by one user
     @JoinColumn(name = "recipient_id")
     private User recipient;
-    @OneToMany(mappedBy = "chat", fetch = FetchType.EAGER)//One chat can have many messages
-    //the mappedBy attribute is used to indicate that the Message entity owns the relationship through its chat field.
+    @OneToMany(mappedBy = "chat", fetch = FetchType.EAGER)
+    //One chat can have many messages
+    //the mappedBy attribute is used to indicate that the Message entity owns the relationship
+    //the JPA will try to look for a field named chat in the Message entity which we have in the Message class
+    // private Chat chat; in the Message class
     @OrderBy("createdAt DESC")
     private List<Message> messages;
 

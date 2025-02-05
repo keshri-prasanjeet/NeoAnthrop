@@ -30,7 +30,8 @@ public class Message extends BaseAuditingEntity {
     private String recipientId;
     @ManyToOne
     @JoinColumn(name = "chat_id")
-    private Chat chat;
+    private Chat chat;//this is the foreign key for the Chat table(message owns the relationship)
+    //message is responsible for storing the chat id
     @Enumerated(EnumType.STRING)
     private MessageState state;
     @Enumerated(EnumType.STRING)

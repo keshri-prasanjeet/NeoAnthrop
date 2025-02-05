@@ -18,6 +18,8 @@ public class FileUtils {
         }
         try {
             Path path = Paths.get(fileUrl);
+            //converts a string path (like "/home/user/file.txt" 
+            //or "C:\Users\file.txt") into a Path object
             return Files.readAllBytes(path);
         }
         catch (Exception e) {

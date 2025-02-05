@@ -23,7 +23,6 @@ public class ChatService {
     @Transactional(readOnly = true)
     public List<ChatResponse> getAllChatsFromUser(Authentication currentUser) {
         final String currentUserId = currentUser.getName();//current authenticated user
-        //
         return chatRepository.getCurrentUserChats(currentUserId)
                 .stream()
                 .map(chat -> chatMapper.toChatResponse(chat, currentUserId))
@@ -36,7 +35,7 @@ public class ChatService {
             return optionalChat.get().getId();
         }
         User sender = userRepository.findUserByPublicId(senderId)
-                .orElseThrow(() -> new EntityNotFoundException("Sender not found with id: " + senderId));
+                .orElseThrow(() -> new EntityNotFoundException("Sender not found with id: " + senderId)); //maybe default to SMS that join me on NeoAnthrop
         //The orElseThrow method expects a Supplier which is a functional interface. The lambda function
         // you are using calls the constructor of the EntityNotFoundException class with a parameterized
         // message.

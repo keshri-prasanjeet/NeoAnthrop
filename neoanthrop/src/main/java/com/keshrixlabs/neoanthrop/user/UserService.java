@@ -17,6 +17,7 @@ public class UserService {
         return userRepository.findAllUsersExceptSelf(currentUser.getName())
                 .stream()
                 .map(userMapper::toUserResponse)
+//                .map(user -> userMapper.toUserResponse(user))
                 .toList();
     }
 }

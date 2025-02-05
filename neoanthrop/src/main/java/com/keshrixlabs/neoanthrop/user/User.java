@@ -48,5 +48,5 @@ public class User extends BaseAuditingEntity {
     public boolean isUserOnline() {
         return lastSeen != null && lastSeen.isAfter(LocalDateTime.now().minusMinutes(1));
     }
-
+    //todo get last seen implementation? like 5 minutes ago, 1 hour ago, etc
 }
