@@ -66,6 +66,3 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-@import url("bootstrap/dist/css/bootstrap.min.css");
-@import url("fortawesome-free/css/all.min.css");
-/*todo import fonts*/
